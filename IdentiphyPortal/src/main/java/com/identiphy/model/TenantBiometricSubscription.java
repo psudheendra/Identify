@@ -26,49 +26,25 @@ public class TenantBiometricSubscription  {
     @Column(name = "tenantid")
     public Long tenantid;
    
-    @Column(name = "address1")
-    public String address1;
-
-    @Column(name = "address2")
-    public String address2;
-
-    @Column(name = "city")
-    public String city;
+    @Column(name = "biometricproviderdetailsid")
+    public Long biometricproviderdetailsid;
     
-    @Column(name = "country")
-    public String country;
+    @Column(name = "biometricproviderdetailsubscriptionid")
+    public Long biometricproviderdetailsubscriptionid;
     
-    @Column(name = "pin")
-    public String pin;
+    @Column(name = "startdate")
+    public DateTime planstartdate;
     
-    @Column(name = "email")
-    public String email;
+    @Column(name = "endenddate")
+    public DateTime planendenddate;
     
-    @Column(name = "phone")
-    public String phone;
-    
-    @Column(name = "contactperson")
-    public String contactperson;
-    
-    @Column(name = "contactpersonphone")
-    public String contactpersonphone;
-    
-    @Column(name = "contactpersonemail")
-    public String contactpersonemail;
-    
-    @Column(name = "clientwebsite")
-    public String clientwebsite;
-    
-    @Column(name = "active")
-    public boolean active;
+    @Column(name = "status")
+    public String status;
     
     @Column(name = "lastupdateddate")
     public DateTime lastupdateddate;
     
-    @Column(name = "lastupdateduserid")
-    public String lastupdateduserid;
-
-	public Long getId() {
+    public Long getId() {
 		return id;
 	}
 
@@ -84,100 +60,44 @@ public class TenantBiometricSubscription  {
 		this.tenantid = tenantid;
 	}
 
-	public String getAddress1() {
-		return address1;
+	public Long getBiometricproviderdetailsid() {
+		return biometricproviderdetailsid;
 	}
 
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setBiometricproviderdetailsid(Long biometricproviderdetailsid) {
+		this.biometricproviderdetailsid = biometricproviderdetailsid;
 	}
 
-	public String getAddress2() {
-		return address2;
+	public Long getBiometricproviderdetailsubscriptionid() {
+		return biometricproviderdetailsubscriptionid;
 	}
 
-	public void setAddress2(String address2) {
-		this.address2 = address2;
+	public void setBiometricproviderdetailsubscriptionid(Long biometricproviderdetailsubscriptionid) {
+		this.biometricproviderdetailsubscriptionid = biometricproviderdetailsubscriptionid;
 	}
 
-	public String getCity() {
-		return city;
+	public DateTime getPlanstartdate() {
+		return planstartdate;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setPlanstartdate(DateTime planstartdate) {
+		this.planstartdate = planstartdate;
 	}
 
-	public String getCountry() {
-		return country;
+	public DateTime getPlanendenddate() {
+		return planendenddate;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setPlanendenddate(DateTime planendenddate) {
+		this.planendenddate = planendenddate;
 	}
 
-	public String getPin() {
-		return pin;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getContactperson() {
-		return contactperson;
-	}
-
-	public void setContactperson(String contactperson) {
-		this.contactperson = contactperson;
-	}
-
-	public String getContactpersonphone() {
-		return contactpersonphone;
-	}
-
-	public void setContactpersonphone(String contactpersonphone) {
-		this.contactpersonphone = contactpersonphone;
-	}
-
-	public String getContactpersonemail() {
-		return contactpersonemail;
-	}
-
-	public void setContactpersonemail(String contactpersonemail) {
-		this.contactpersonemail = contactpersonemail;
-	}
-
-	public String getClientwebsite() {
-		return clientwebsite;
-	}
-
-	public void setClientwebsite(String clientwebsite) {
-		this.clientwebsite = clientwebsite;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public DateTime getLastupdateddate() {
@@ -188,14 +108,16 @@ public class TenantBiometricSubscription  {
 		this.lastupdateddate = lastupdateddate;
 	}
 
-	public String getLastupdateduserid() {
-		return lastupdateduserid;
+	public DateTime getLastupdateduser() {
+		return lastupdateduser;
 	}
 
-	public void setLastupdateduserid(String lastupdateduserid) {
-		this.lastupdateduserid = lastupdateduserid;
+	public void setLastupdateduser(DateTime lastupdateduser) {
+		this.lastupdateduser = lastupdateduser;
 	}
 
-	
+	@Column(name = "lastupdateduser")
+    public DateTime lastupdateduser;
+    
     
 }
