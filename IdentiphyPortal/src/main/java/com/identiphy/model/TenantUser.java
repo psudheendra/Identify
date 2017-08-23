@@ -33,13 +33,16 @@ public class TenantUser  {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "employeealias")
+    private String employeealias;
+    
     @Column(name = "phone")
     private String phone;
     
     @Column(name = "email")
     private String email;
-    
-    @Column(name = "role")
+
+	@Column(name = "role")
     private String role;
     
     @Column(name = "status")
@@ -79,6 +82,14 @@ public class TenantUser  {
 		return password;
 	}
 
+	public String getEmployeealias() {
+		return employeealias;
+	}
+
+	public void setEmployeealias(String employeealias) {
+		this.employeealias = employeealias;
+	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
