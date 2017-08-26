@@ -9,13 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-
-/**
- * Created by fan.jin on 2016-10-15.
- */
+import java.util.Set;
 
 @Entity
-@Table(name="TenantUserSubscription")
+@Table(name="tenant_user_subscription")
 public class TenantUserSubscription  {
 	
 	// tenant user id
@@ -24,8 +21,8 @@ public class TenantUserSubscription  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tenantuserid")
-    private Long tenantuserid;
+//    @Column(name = "tenant_user_id")
+//    private Long tenantuserid;
     
     @Column(name = "tenantbiometricsubscriptionid")
     private Long tenantbiometricsubscriptionid;
@@ -44,6 +41,18 @@ public class TenantUserSubscription  {
     
     @Column(name = "userstatus")
     private String userstatus;
+    
+    @ManyToOne
+    @JoinColumn(name = "tenant_user_id")
+    private TenantUser tenantUser;
+    
+    public TenantUser getTenantUser() {
+        return tenantUser;
+    }
+
+    public void setTenantUser(TenantUser tenantUser) {
+        this.tenantUser = tenantUser;
+    }   
 
 	public Long getId() {
 		return id;
@@ -51,14 +60,6 @@ public class TenantUserSubscription  {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getTenantuserid() {
-		return tenantuserid;
-	}
-
-	public void setTenantuserid(Long tenantuserid) {
-		this.tenantuserid = tenantuserid;
 	}
 
 	public Long getTenantbiometricsubscriptionid() {

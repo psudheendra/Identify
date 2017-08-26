@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.identiphy.model.Tenant;
+import com.identiphy.model.TenantUser;
+import com.identiphy.model.User;
 import com.identiphy.service.TenantService;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,6 +41,16 @@ public class TenantController {
     @RequestMapping( method = GET, value= "/tenant/all")
     public List<Tenant> loadAll() {
         return this.tenantService.findAll();
+    }
+    
+    @RequestMapping( method = GET, value = "/tenant/{tenantId}" )
+    public Tenant loadById( @PathVariable Long tenantId ) {
+        return this.tenantService.findById( tenantId );
+    }
+    
+    @RequestMapping( method = GET, value = "/tenantusers/{tenantId}" )
+    public List<TenantUser> loadTenantUsersById( @PathVariable Long tenantId ) {
+        return this.tenantService.findTenantUsersById( tenantId );
     }
     
     @PreAuthorize("hasRole('USER')")

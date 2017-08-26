@@ -63,9 +63,6 @@ function DashboardCtrl($scope, $rootScope, $http, authService, isAuthenticated) 
 		});
 	}
 	
-	
-		
-	
 	$scope.createNewTenant = function() {
 		
 		var data = $.param({
@@ -95,6 +92,29 @@ function DashboardCtrl($scope, $rootScope, $http, authService, isAuthenticated) 
 			setResponse(response, false);
 		});
 	}
+	
+	$scope.getTenant = function() {
+		
+		$http.get('tenant/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.getTenantUsers = function() {
+		
+		$http.get('tenantusers/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
 }
 DashboardCtrl.resolve = {
 	isAuthenticated : function($q, $http) {

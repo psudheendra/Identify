@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @Entity
-@Table(name="TENANT")
+@Table(name="tenant")
 public class Tenant  {
 	
     @Id
@@ -67,6 +67,17 @@ public class Tenant  {
     
     @Column(name = "lastupdateduserid")
     public String lastupdateduserid;
+    
+    @OneToMany(mappedBy = "tenant")    
+    public List<TenantUser> tenantUsers;       
+   
+    public List<TenantUser> getTenantUsers() {
+        return tenantUsers;
+    }
+
+    public void setTenantUsers(List<TenantUser> tenantUsers) {
+        this.tenantUsers = tenantUsers;
+    }
 
 	public Long getId() {
 		return id;

@@ -9,13 +9,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by fan.jin on 2016-10-15.
  */
 
 @Entity
-@Table(name="TenantUser")
+@Table(name="tenant_user")
 public class TenantUser  {
 	
 	// tenant user id
@@ -24,16 +25,16 @@ public class TenantUser  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tenantid")
-    private Long tenantid;
+//    @Column(name = "tenant_id")
+//    private Long tenantid;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String username;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "employeealias")
+    @Column(name = "employee_alias")
     private String employeealias;
     
     @Column(name = "phone")
@@ -53,21 +54,36 @@ public class TenantUser  {
     
     @Column(name = "lastupdateduserid")
     private String lastupdateduserid;
+    
+    @ManyToOne
+    @JoinColumn(name = "tenant_id")
+    private Tenant tenant;
+    
+    public Tenant getTenant() {
+        return tenant;
+    }
 
+    public void setBookCategory(Tenant tenant) {
+        this.tenant = tenant;
+    }
+    
+    @OneToMany(mappedBy = "tenantUser")    
+    private List<TenantUserSubscription> tenantUserSubscriptions;    
+    
+    public List<TenantUserSubscription> getTenantUserSubscriptions() {
+    	return tenantUserSubscriptions;
+    }
+
+    public void setTenantUserSubscriptions(List<TenantUserSubscription> tenantUserSubscriptions) {
+    	this.tenantUserSubscriptions = tenantUserSubscriptions;
+    } 
+    
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getTenantid() {
-		return tenantid;
-	}
-
-	public void setTenantid(Long tenantid) {
-		this.tenantid = tenantid;
 	}
 
 	public String getUsername() {

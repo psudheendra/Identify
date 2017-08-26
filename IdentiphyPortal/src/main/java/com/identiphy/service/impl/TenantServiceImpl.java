@@ -6,6 +6,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.identiphy.model.Tenant;
+import com.identiphy.model.TenantUser;
+import com.identiphy.model.User;
 import com.identiphy.repository.TenantRepository;
 import com.identiphy.service.TenantService;
 
@@ -42,4 +44,31 @@ public class TenantServiceImpl implements TenantService {
 			tenantRepository.delete(id);
 
 	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+    public Tenant findById( Long id ) throws AccessDeniedException {
+		try {
+		Tenant u = tenantRepository.findOne( id );
+        return u;
+		}
+		catch ( Exception e) {
+			System.out.println(e.toString());
+		}
+		return null;
+    }
+	
+	@PreAuthorize("hasRole('ADMIN')")
+    public List<TenantUser> findTenantUsersById( Long id ) throws AccessDeniedException {
+		try {
+		Tenant u = tenantRepository.findOne( id );
+		if ( u != null ) {
+			return u.getTenantUsers();
+		}
+        
+		}
+		catch ( Exception e) {
+			System.out.println(e.toString());
+		}
+		return null;
+    }
 }
