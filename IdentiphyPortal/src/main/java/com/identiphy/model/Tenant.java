@@ -68,7 +68,6 @@ public class Tenant  {
     @Column(name = "lastupdateduserid")
     public String lastupdateduserid;
     
-    }
 //    @OneToMany(mappedBy = "tenant")    
 //    public List<TenantUser> tenantUsers;       
 //   
