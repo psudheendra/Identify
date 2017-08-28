@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name="BiometricProviderDetail")
-public class BiometricProviderDetails {
+public class BiometricProviderDetail {
 	
 	@Id
     @Column(name = "id")

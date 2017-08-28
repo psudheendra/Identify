@@ -2,12 +2,9 @@ package com.identiphy.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.identiphy.model.Tenant;
+import com.identiphy.model.TenantUserSubscription;
 
-/**
- * Created by fan.jin on 2016-10-15.
- */
-public interface TenantUserSubscriptionRepository extends JpaRepository<Tenant, Long> {
+public interface TenantUserSubscriptionRepository extends JpaRepository<TenantUserSubscription, Long> {
 	
 
 }

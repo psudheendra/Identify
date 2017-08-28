@@ -6,6 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.identiphy.model.TenantUser;
+import com.identiphy.model.User;
 import com.identiphy.repository.TenantUserRepository;
 import com.identiphy.service.TenantUserService;
 
@@ -41,5 +42,11 @@ public class TenantUserServiceImpl implements TenantUserService {
 		if ( id > 0 )
 			tenantUserRepository.delete(id);
 
+	}
+
+	@Override
+	public TenantUser findById(Long id) {
+		TenantUser u = tenantUserRepository.findOne( id );
+        return u;
 	}
 }

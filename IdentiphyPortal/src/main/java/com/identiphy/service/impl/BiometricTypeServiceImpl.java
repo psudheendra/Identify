@@ -6,6 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.identiphy.model.BiometricType;
+import com.identiphy.model.Tenant;
 import com.identiphy.repository.BiometricTypeRepository;
 import com.identiphy.service.BiometricTypeService;
 
@@ -25,4 +26,24 @@ public class BiometricTypeServiceImpl implements BiometricTypeService {
         List<BiometricType> result = biometricTypeRepository.findAll();
         return result;
     }
+
+	@Override
+	public BiometricType save(BiometricType obj) {
+		if (obj != null)
+			obj = biometricTypeRepository.save(obj);
+
+		return obj;
+	}
+
+	@Override
+	public void delete(long id) {
+		if ( id > 0 )
+			biometricTypeRepository.delete(id);		
+	}
+
+	@Override
+	public BiometricType findById(Long id) {
+		BiometricType u = biometricTypeRepository.findOne( id );
+        return u;
+	}
 }
