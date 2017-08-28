@@ -16,5 +16,5 @@ public interface TenantService {
     public Tenant save(Tenant obj);
     public void delete(long id);
     public Tenant findById(Long id);
-    public List<TenantUser> findTenantUsersById( Long id );
+    public List<Object> findTenantUsersById( Long id );
 }

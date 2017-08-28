@@ -13,6 +13,9 @@ import com.identiphy.service.TenantService;
 
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  * Created by fan.jin on 2016-10-15.
  */
@@ -21,6 +24,7 @@ import java.util.List;
 public class TenantServiceImpl implements TenantService {
 	@Autowired
 	private TenantRepository tenantRepository;
+	private static EntityManagerFactory factory;
 
 	@PreAuthorize("hasRole('ADMIN')")
 	public List<Tenant> findAll() throws AccessDeniedException {
@@ -58,13 +62,12 @@ public class TenantServiceImpl implements TenantService {
     }
 	
 	@PreAuthorize("hasRole('ADMIN')")
-    public List<TenantUser> findTenantUsersById( Long id ) throws AccessDeniedException {
+    public List<Object> findTenantUsersById( Long id ) throws AccessDeniedException {
 		try {
-		Tenant u = tenantRepository.findOne( id );
-		if ( u != null ) {
-			return u.getTenantUsers();
-		}
-        
+
+			List<Object> tenantUsers = tenantRepository.findTenantUsersById( id );
+			return tenantUsers;
+      
 		}
 		catch ( Exception e) {
 			System.out.println(e.toString());

@@ -49,7 +49,7 @@ public class TenantController {
     }
     
     @RequestMapping( method = GET, value = "/tenantusers/{tenantId}" )
-    public List<TenantUser> loadTenantUsersById( @PathVariable Long tenantId ) {
+    public List<Object> loadTenantUsersById( @PathVariable Long tenantId ) {
         return this.tenantService.findTenantUsersById( tenantId );
     }
     

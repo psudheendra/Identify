@@ -68,16 +68,17 @@ public class Tenant  {
     @Column(name = "lastupdateduserid")
     public String lastupdateduserid;
     
-    @OneToMany(mappedBy = "tenant")    
-    public List<TenantUser> tenantUsers;       
-   
-    public List<TenantUser> getTenantUsers() {
-        return tenantUsers;
     }
-
-    public void setTenantUsers(List<TenantUser> tenantUsers) {
-        this.tenantUsers = tenantUsers;
-    }
+//    @OneToMany(mappedBy = "tenant")    
+//    public List<TenantUser> tenantUsers;       
+//   
+//    public List<TenantUser> getTenantUsers() {
+//        return tenantUsers;
+//    }
+//
+//    public void setTenantUsers(List<TenantUser> tenantUsers) {
+//        this.tenantUsers = tenantUsers;
+//    }
 
 	public Long getId() {
 		return id;

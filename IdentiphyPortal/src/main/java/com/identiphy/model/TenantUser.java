@@ -25,8 +25,8 @@ public class TenantUser  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "tenant_id")
-//    private Long tenantid;
+    @Column(name = "tenant_id")
+    private Long tenantid;
 
     @Column(name = "user_name")
     private String username;
@@ -55,28 +55,28 @@ public class TenantUser  {
     @Column(name = "lastupdateduserid")
     private String lastupdateduserid;
     
-    @ManyToOne
-    @JoinColumn(name = "tenant_id")
-    private Tenant tenant;
+//    @ManyToOne
+//    @JoinColumn(name = "tenant_id")
+//    private Tenant tenant;
+//    
+//    public Tenant getTenant() {
+//        return tenant;
+//    }
+//
+//    public void setBookCategory(Tenant tenant) {
+//        this.tenant = tenant;
+//    }
     
-    public Tenant getTenant() {
-        return tenant;
-    }
-
-    public void setBookCategory(Tenant tenant) {
-        this.tenant = tenant;
-    }
-    
-    @OneToMany(mappedBy = "tenantUser")    
-    private List<TenantUserSubscription> tenantUserSubscriptions;    
-    
-    public List<TenantUserSubscription> getTenantUserSubscriptions() {
-    	return tenantUserSubscriptions;
-    }
-
-    public void setTenantUserSubscriptions(List<TenantUserSubscription> tenantUserSubscriptions) {
-    	this.tenantUserSubscriptions = tenantUserSubscriptions;
-    } 
+//    @OneToMany(mappedBy = "tenantUser")    
+//    private List<TenantUserSubscription> tenantUserSubscriptions;    
+//    
+//    public List<TenantUserSubscription> getTenantUserSubscriptions() {
+//    	return tenantUserSubscriptions;
+//    }
+//
+//    public void setTenantUserSubscriptions(List<TenantUserSubscription> tenantUserSubscriptions) {
+//    	this.tenantUserSubscriptions = tenantUserSubscriptions;
+//    } 
     
 	public Long getId() {
 		return id;

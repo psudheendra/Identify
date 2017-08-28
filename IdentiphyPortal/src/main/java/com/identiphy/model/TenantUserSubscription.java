@@ -21,8 +21,8 @@ public class TenantUserSubscription  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "tenant_user_id")
-//    private Long tenantuserid;
+    @Column(name = "tenant_user_id")
+    private Long tenantuserid;
     
     @Column(name = "tenantbiometricsubscriptionid")
     private Long tenantbiometricsubscriptionid;
@@ -42,17 +42,17 @@ public class TenantUserSubscription  {
     @Column(name = "userstatus")
     private String userstatus;
     
-    @ManyToOne
-    @JoinColumn(name = "tenant_user_id")
-    private TenantUser tenantUser;
-    
-    public TenantUser getTenantUser() {
-        return tenantUser;
-    }
-
-    public void setTenantUser(TenantUser tenantUser) {
-        this.tenantUser = tenantUser;
-    }   
+//    @ManyToOne
+//    @JoinColumn(name = "tenant_user_id")
+//    private TenantUser tenantUser;
+//    
+//    public TenantUser getTenantUser() {
+//        return tenantUser;
+//    }
+//
+//    public void setTenantUser(TenantUser tenantUser) {
+//        this.tenantUser = tenantUser;
+//    }   
 
 	public Long getId() {
 		return id;
