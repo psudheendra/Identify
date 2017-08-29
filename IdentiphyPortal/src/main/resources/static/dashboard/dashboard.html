@@ -26,7 +26,9 @@
 	<button type="button" class="btn btn-info" ng-click="createNewTenantUserSubscription()">/tenant user  subscription- post</button>
     <button type="button" class="btn btn-info" ng-click="deleteTenantUserSubscription()">/tenant user  subscription-delete</button>
     <button type="button" class="btn btn-info" ng-click="getTenantUserSubscription()">/tenant user subscription-get</button>
-    <button type="button" class="btn btn-info" ng-click="getAllTenantUserSubscriptions()">/tenant user  subscription-get all</button>    
+    <button type="button" class="btn btn-info" ng-click="getAllTenantUserSubscriptions()">/tenant user  subscription-get all</button>   
+    
+    <button type="button" class="btn btn-info" style="background-color: red !important;" ng-click="getTenantSubscriptions()">/tenant subscriptions - get by tenant id</button> 
 </div>
 
 <div class="alert {{responseBoxClass}}" ng-show="serverResponse">

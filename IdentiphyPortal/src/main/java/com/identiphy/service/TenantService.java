@@ -15,4 +15,5 @@ public interface TenantService {
     public void delete(long id);
     public Tenant findById(Long id);
     public List<Object> findTenantUsersById( Long id );
+    public List<Object> findTenantSubscriptionsById( Long id );
 }

@@ -74,4 +74,18 @@ public class TenantServiceImpl implements TenantService {
 		}
 		return null;
     }
+
+	@PreAuthorize("hasRole('ADMIN')")
+	public List<Object> findTenantSubscriptionsById(Long id) {
+		try {
+
+			List<Object> tenantUsers = tenantRepository.findTenantSubscriptionsById( id );
+			return tenantUsers;
+      
+		}
+		catch ( Exception e) {
+			System.out.println(e.toString());
+		}
+		return null;
+	}
 }

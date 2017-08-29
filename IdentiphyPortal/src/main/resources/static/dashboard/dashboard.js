@@ -259,6 +259,18 @@ function DashboardCtrl($scope, $rootScope, $http, authService, isAuthenticated) 
 		});
 	}
 	
+	$scope.getTenantSubscriptions = function() {
+		
+		$http.get('tenantsubscriptions/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	
 }
 DashboardCtrl.resolve = {
 	isAuthenticated : function($q, $http) {

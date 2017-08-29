@@ -15,6 +15,12 @@ INSERT INTO Biometric_Type (id, biometricname) VALUES (3, 'Finger');
 INSERT INTO Biometric_Type (id, biometricname) VALUES (4, 'Behaviour');
 INSERT INTO Biometric_Type (id, biometricname) VALUES (5, 'Irish');
 
+INSERT INTO biometric_provider (id, address1, address2, city, contactperson, contactpersonphone, country, email, phone, pin, providername) VALUES (NULL, 'address1', 'address2', 'Blore', 'Person A', '9999999999', 'India', 'test@email.com', '9999999999', '560000', 'Provider A');
+
 INSERT INTO biometric_provider_detail (id, apikey, apisecret, biometrictypeid, providerid, subscriptioncurrency, subscriptiontype, website) VALUES (NULL, 'apikey', 'apisecret', 1, 1, 'Re', 'A', 'www.microsoft.com');
 
-INSERT INTO tenant 	(id, active, address1, address2, city, clientwebsite, contactperson, contactpersonemail, contactpersonphone, country, email, lastupdateddate, lastupdateduserid, phone, pin, tenantname) VALUES (NULL, 1, 'Building 1', 'Street 2', 'Blore','www.goole.com', 'Person A', 'person@email.com', '9855558522', 'India', 'person@email.com', '', NULL, '9999999999', '560000', 'Tenant A');
+INSERT INTO biometric_provider_subscription_details (id, biometricproviderdetailid, plancost, plantype, validity) VALUES (NULL, 1, 500, 'Paid', 365);
+	
+INSERT INTO tenant 	(id, active, address1, address2, city, clientwebsite, contactperson, contactpersonemail, contactpersonphone, country, email, lastupdateddate, lastupdateduserid, phone, pin, tenantname) VALUES (NULL, 1, 'Building 1', 'Street 2', 'Blore','www.goole.com', 'Person A', 'person@email.com', '9855558522', 'India', 'person@email.com', NULL, NULL, '9999999999', '560000', 'Tenant A');
+
+INSERT INTO tenant_biometric_subscriptions (id, biometricproviderdetailsid, biometricproviderdetailsubscriptionid, lastupdateddate, lastupdateduser, endenddate, startdate, `status`, tenantid) VALUES (NULL, 1, 1, NULL, NULL, NULL, NULL, '1', 1)

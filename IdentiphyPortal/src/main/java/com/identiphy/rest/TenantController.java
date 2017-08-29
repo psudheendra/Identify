@@ -53,6 +53,12 @@ public class TenantController {
         return this.tenantService.findTenantUsersById( tenantId );
     }
     
+
+    @RequestMapping( method = GET, value = "/tenantsubscriptions/{tenantId}" )
+    public List<Object> loadTenantSubscriptionsById( @PathVariable Long tenantId ) {
+        return this.tenantService.findTenantSubscriptionsById( tenantId );
+    }
+    
     @PreAuthorize("hasRole('USER')")
     @RequestMapping( method = POST, value= "/tenant")
     public Tenant save(@RequestBody Tenant tenant) {
