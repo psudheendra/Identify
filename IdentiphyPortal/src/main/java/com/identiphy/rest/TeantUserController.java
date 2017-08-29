@@ -58,9 +58,9 @@ public class TeantUserController {
     }
     
     @PreAuthorize("hasRole('USER')")
-    @RequestMapping( method = DELETE, value= "/tenantuser")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
-        this.tenantUserService.delete(id);
+    @RequestMapping( method = DELETE, value= "/tenantuser/{tenantid}")
+    public ResponseEntity<?> delete(@PathVariable("tenantid") long tenantid) {
+        this.tenantUserService.delete(tenantid);
         return new ResponseEntity<BiometricProviderDetail>(HttpStatus.NO_CONTENT);
     }
 

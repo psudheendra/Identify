@@ -17,11 +17,15 @@ import com.identiphy.model.BiometricProviderSubscriptionDetail;
 import com.identiphy.model.BiometricType;
 import com.identiphy.model.Tenant;
 import com.identiphy.model.TenantBiometricSubscription;
+import com.identiphy.model.TenantUser;
+import com.identiphy.model.TenantUserSubscription;
 import com.identiphy.service.BiometricProviderDetailService;
 import com.identiphy.service.BiometricProviderService;
 import com.identiphy.service.BiometricProviderSubscriptionDetailService;
 import com.identiphy.service.BiometricTypeService;
 import com.identiphy.service.TenantBiometricSubscriptionService;
+import com.identiphy.service.TenantUserService;
+import com.identiphy.service.TenantUserSubscriptionService;
 
 import java.security.Principal;
 import java.util.List;
@@ -32,33 +36,33 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-public class TeantBiometricSubscriptionController {
+public class TeantUserSubscriptionController {
 
     @Autowired
-    private TenantBiometricSubscriptionService tenantBiometricSubscriptionService;
+    private TenantUserSubscriptionService tenantUserSubscriptionService;
 
     
     @PreAuthorize("hasRole('USER')")
-    @RequestMapping( method = GET, value= "/tenantbiometricsubscription/all")
-    public List<TenantBiometricSubscription> loadAll() {
-        return this.tenantBiometricSubscriptionService.findAll();
+    @RequestMapping( method = GET, value= "/tenantusersubscription/all")
+    public List<TenantUserSubscription> loadAll() {
+        return this.tenantUserSubscriptionService.findAll();
     }
     
-    @RequestMapping( method = GET, value = "/tenantbiometricsubscription/{biometricProviderSubscriptionId}" )
-    public TenantBiometricSubscription loadById( @PathVariable Long biometricProviderSubscriptionId ) {
-        return this.tenantBiometricSubscriptionService.findById( biometricProviderSubscriptionId );
-    }
-    
-    @PreAuthorize("hasRole('USER')")
-    @RequestMapping( method = POST, value= "/tenantbiometricsubscription")
-    public TenantBiometricSubscription save(@RequestBody TenantBiometricSubscription tenant) {
-        return this.tenantBiometricSubscriptionService.save(tenant);
+    @RequestMapping( method = GET, value = "/tenantusersubscription/{tenantid}" )
+    public TenantUserSubscription loadById( @PathVariable Long tenantid ) {
+        return this.tenantUserSubscriptionService.findById( tenantid );
     }
     
     @PreAuthorize("hasRole('USER')")
-    @RequestMapping( method = DELETE, value= "/tenantbiometricsubscription")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
-        this.tenantBiometricSubscriptionService.delete(id);
+    @RequestMapping( method = POST, value= "/tenantusersubscription")
+    public TenantUserSubscription save(@RequestBody TenantUserSubscription tenant) {
+        return this.tenantUserSubscriptionService.save(tenant);
+    }
+    
+    @PreAuthorize("hasRole('USER')")
+    @RequestMapping( method = DELETE, value= "/tenantusersubscription/{tenantid}")
+    public ResponseEntity<?> delete(@PathVariable("tenantid") long tenantid) {
+        this.tenantUserSubscriptionService.delete(tenantid);
         return new ResponseEntity<BiometricProviderDetail>(HttpStatus.NO_CONTENT);
     }
 

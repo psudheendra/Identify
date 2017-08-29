@@ -15,6 +15,9 @@ public interface TenantRepository extends JpaRepository<Tenant, Long> {
 	
 	@Query(value = "SELECT id, email, employee_alias as employeealias, lastupdateddate, lastupdateduserid, password, phone, role, status, tenant_id as tenantid, user_name as username FROM tenant_user WHERE tenant_id = ?1", nativeQuery=true)
 	List<Object> findTenantUsersById( Long id );
+	
+	@Query(value = "SELECT id, email, employee_alias as employeealias, lastupdateddate, lastupdateduserid, password, phone, role, status, tenant_id as tenantid, user_name as username FROM tenant_user WHERE tenant_id = ?1", nativeQuery=true)
+	List<Object> findTenantSubscriptionsById( Long id );
 
 }
 

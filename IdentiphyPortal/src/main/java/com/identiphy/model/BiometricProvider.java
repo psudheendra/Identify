@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name="BiometricType")
+@Table(name="BiometricProvider")
 public class BiometricProvider {
 	
 	@Id

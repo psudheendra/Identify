@@ -11,3 +11,10 @@ INSERT INTO user_authority (user_id, authority_id) VALUES (2, 2);
 
 INSERT INTO Biometric_Type (id, biometricname) VALUES (1, 'Voice');
 INSERT INTO Biometric_Type (id, biometricname) VALUES (2, 'Face');
+INSERT INTO Biometric_Type (id, biometricname) VALUES (3, 'Finger');
+INSERT INTO Biometric_Type (id, biometricname) VALUES (4, 'Behaviour');
+INSERT INTO Biometric_Type (id, biometricname) VALUES (5, 'Irish');
+
+INSERT INTO biometric_provider_detail (id, apikey, apisecret, biometrictypeid, providerid, subscriptioncurrency, subscriptiontype, website) VALUES (NULL, 'apikey', 'apisecret', 1, 1, 'Re', 'A', 'www.microsoft.com');
+
+INSERT INTO tenant 	(id, active, address1, address2, city, clientwebsite, contactperson, contactpersonemail, contactpersonphone, country, email, lastupdateddate, lastupdateduserid, phone, pin, tenantname) VALUES (NULL, 1, 'Building 1', 'Street 2', 'Blore','www.goole.com', 'Person A', 'person@email.com', '9855558522', 'India', 'person@email.com', '', NULL, '9999999999', '560000', 'Tenant A');

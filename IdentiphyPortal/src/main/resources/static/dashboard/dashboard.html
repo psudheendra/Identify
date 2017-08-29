@@ -16,8 +16,17 @@
     <button type="button" class="btn btn-info" ng-click="getAllBiometricTypesInfo()">/biometrictype/all</button>
     <button type="button" class="btn btn-info" ng-click="createNewTenant()">/tenant - post</button>
     <button type="button" class="btn btn-info" ng-click="deleteTenant()">/tenant -delete</button>
+    <button type="button" class="btn btn-info" ng-click="getAllTenant()">/tenant -get all</button>
     <button type="button" class="btn btn-info" ng-click="getTenant()">/tenant -get</button>
-    <button type="button" class="btn btn-info" ng-click="getTenantUsers()">/tenant users -get</button>
+    <button type="button" class="btn btn-info" ng-click="getTenantUsers()">/tenant -get users</button>
+	<button type="button" class="btn btn-info" ng-click="createNewTenantUser()">/tenant user - post</button>
+    <button type="button" class="btn btn-info" ng-click="deleteTenantUser()">/tenant user-delete</button>
+    <button type="button" class="btn btn-info" ng-click="getTenantUser()">/tenant user-get</button>
+    <button type="button" class="btn btn-info" ng-click="getAllTenantUsers()">/tenant user -get all</button>
+	<button type="button" class="btn btn-info" ng-click="createNewTenantUserSubscription()">/tenant user  subscription- post</button>
+    <button type="button" class="btn btn-info" ng-click="deleteTenantUserSubscription()">/tenant user  subscription-delete</button>
+    <button type="button" class="btn btn-info" ng-click="getTenantUserSubscription()">/tenant user subscription-get</button>
+    <button type="button" class="btn btn-info" ng-click="getAllTenantUserSubscriptions()">/tenant user  subscription-get all</button>    
 </div>
 
 <div class="alert {{responseBoxClass}}" ng-show="serverResponse">

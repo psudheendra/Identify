@@ -93,6 +93,18 @@ function DashboardCtrl($scope, $rootScope, $http, authService, isAuthenticated) 
 		});
 	}
 	
+	$scope.getAllTenant = function() {
+		
+		$http.get('tenant/all')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	
 	$scope.getTenant = function() {
 		
 		$http.get('tenant/1')
@@ -104,9 +116,141 @@ function DashboardCtrl($scope, $rootScope, $http, authService, isAuthenticated) 
 		});
 	}
 	
+	$scope.deleteTenant = function() {
+		
+		$http.delete('tenant/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
 	$scope.getTenantUsers = function() {
 		
 		$http.get('tenantusers/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.createNewTenantUser = function() {
+		
+		var data = $.param({
+            json: JSON.stringify({
+            	tenant_id: "1",
+            	user_name: "tenant user 1",
+            	password: "password",
+            	employeealias: "employeealiasuser1",
+            	email: "email@test.com",
+                
+            })
+        });
+		
+		var data1 = {
+				tenant_id: "1",
+            	user_name: "tenant user 1",
+            	password: "password",
+            	employeealias: "employeealiasuser1",
+            	email: "email@test.com",
+                
+            }
+		
+		
+		$http.post('tenantuser',data1)
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.getAllTenantUsers = function() {
+		
+		$http.get('tenantuser/all')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+		
+	$scope.getTenantUser = function() {
+		
+		$http.get('tenantuser/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.deleteTenantUser = function() {
+		
+		$http.delete('tenantuser/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	/****  Tenant User Subscription ********/
+	
+	$scope.createNewTenantUserSubscription = function() {
+		
+		var data1 = {
+				tenantuserid: "1",
+				tenantbiometricsubscriptionid: "1",
+				enrolldate: "2017-08-30",
+            	status: "0",
+            	email: "email@test.com",
+                
+            }
+		
+		
+		$http.post('tenantusersubscription',data1)
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.getAllTenantUserSubscriptions = function() {
+		
+		$http.get('tenantusersubscription/all')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+		
+	$scope.getTenantUserSubscription = function() {
+		
+		$http.get('tenantusersubscription/1')
+		.then(function(response) {
+			setResponse(response, true);
+		})
+		.catch(function(response) {
+			setResponse(response, false);
+		});
+	}
+	
+	$scope.deleteTenantUserSubscription = function() {
+		
+		$http.delete('tenantusersubscription/1')
 		.then(function(response) {
 			setResponse(response, true);
 		})

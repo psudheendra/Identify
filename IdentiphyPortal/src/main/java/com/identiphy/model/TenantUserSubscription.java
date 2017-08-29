@@ -2,7 +2,7 @@ package com.identiphy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.joda.time.DateTime;
+import java.util.Date;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -34,7 +34,7 @@ public class TenantUserSubscription  {
     private String status;
 
     @Column(name = "enrolldate")
-    private DateTime enrolldate;
+    private Date enrolldate;
     
     @Column(name = "enrollerrorreason")
     private String enrollerrorreason;
@@ -86,11 +86,11 @@ public class TenantUserSubscription  {
 		this.status = status;
 	}
 
-	public DateTime getEnrolldate() {
+	public Date getEnrolldate() {
 		return enrolldate;
 	}
 
-	public void setEnrolldate(DateTime enrolldate) {
+	public void setEnrolldate(Date enrolldate) {
 		this.enrolldate = enrolldate;
 	}
 

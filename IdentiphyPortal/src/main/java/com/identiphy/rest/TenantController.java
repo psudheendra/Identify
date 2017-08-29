@@ -61,10 +61,10 @@ public class TenantController {
     }
     
     @PreAuthorize("hasRole('USER')")
-    @RequestMapping( method = DELETE, value= "/tenant")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+    @RequestMapping( method = DELETE, value= "/tenant/{tenantId}")
+    public ResponseEntity<?> delete(@PathVariable("tenantId") long tenantId) {
     	//Tenant obj = this.tenantService.findAll();
-        this.tenantService.delete(id);
+        this.tenantService.delete(tenantId);
         return new ResponseEntity<Tenant>(HttpStatus.NO_CONTENT);
     }
 
